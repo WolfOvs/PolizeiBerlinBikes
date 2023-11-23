@@ -47,7 +47,7 @@ https://bikeindex.org:443/api/v3/search?page=${page}&per_page=10&location=Berlin
 ```bash
 https://bikeindex.org:443/api/v3/search/count?location=Berlin&distance=10&stolenness=proximity
 ```
-The FE send the token in the Requeste Header and the BE check it.
+The FE send the token in the Request Header and the BE check it.
 
 If you try to access to /home without token you are redirected to login.
 
