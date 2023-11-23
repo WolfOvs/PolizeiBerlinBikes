@@ -6,7 +6,7 @@ export type Bikes = [Bike];
 
 export type Bike = {
     title: string;
-    id: number;
+    id: string;
     frame_colors: string;
     date_stolen: number;
     serial: number;

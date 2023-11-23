@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Bike } from "../../types/bike";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
-import { useRef } from "react";
 import L from "leaflet";
 import { formatDate } from "@utils/format";
 
@@ -26,13 +25,16 @@ const GetIcon = (coord: [number, number], selectedBike: [number, number]) => {
 const TableMap = (data: TableProps) => {
   const [selectedBike, setSelectedBike] = useState<[number, number]>();
   const bikePlaceholder = "/assets/layout/images/bike.png";
-  const selectMarker = (bike: [number, number]) => {
+
+  const selectMarker = (bike: [number, number], id: string) => {
     setSelectedBike(bike);
+    const project = document.getElementById(id);
+    project?.scrollIntoView();
   };
 
   return (
     <div className="flex">
-      <div className="map-container mr-2">
+      <div className="map-container mr-2" id="map">
         <MapContainer
           style={{ height: 500 }}
           center={selectedBike!?.length > 0 ? selectedBike : [52.52, 13.405]}
@@ -49,7 +51,7 @@ const TableMap = (data: TableProps) => {
               key={index}
               eventHandlers={{
                 click: (e) => {
-                  selectMarker(bike.stolen_coordinates);
+                  selectMarker(bike.stolen_coordinates, bike.id);
                 },
               }}
               position={[
@@ -76,8 +78,9 @@ const TableMap = (data: TableProps) => {
           <tbody>
             {data.dataBikes?.map((bike: Bike, index: number) => (
               <tr
+                id={bike.id}
                 key={index}
-                onClick={() => selectMarker(bike.stolen_coordinates)}
+                onClick={() => selectMarker(bike.stolen_coordinates, 'map')}
                 className={
                   selectedBike === bike.stolen_coordinates ? "selected" : ""
                 }
