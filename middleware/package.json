@@ -1,0 +1,27 @@
+{
+    "name": "current-project",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "devStart": "nodemon server.js",
+        "devStartAuth": "nodemon authServer.js",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "basic-authorization-header": "^0.2.7",
+        "bcryptjs": "^2.4.3",
+        "cors": "^2.8.5",
+        "dotenv": "^8.1.0",
+        "express": "^4.17.1",
+        "jsonwebtoken": "^8.5.1",
+        "passport": "^0.6.0",
+        "passport-local": "^1.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.2"
+    }
+}

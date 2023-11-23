@@ -1,0 +1,67 @@
+
+@import '../ui/colors';
+
+.map-container {
+  width: 600px;
+  height: 600px;
+}
+
+@keyframes pulse {
+	0% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+  img[src*="wheel"] {
+    border-radius: 100%;
+	  animation: pulse 2s infinite;
+  }
+
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  color: #0F8BFD;
+
+  tr {
+    cursor: pointer;
+  }
+
+  .img-cell {
+    padding:0;
+  }
+
+  img {
+    max-width:200px;
+  }
+
+  .title-column {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .selected {
+    border: 2px solid red;
+  }
+}
+
+th, td {
+  color: var(--white);
+  border: 1px solid var(--blue);
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #000;
+  color: var(--blue);
+}

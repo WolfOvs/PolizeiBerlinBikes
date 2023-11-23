@@ -1,0 +1,25 @@
+
+@import './colors';
+
+.button-primary, .button-primary[type='submit'] {
+    background-color: var(--blue);
+    color:#fff;
+    border: none;
+    height: 40px;
+    padding:10px;
+    min-width:80px;
+    border-radius: 3px;
+    cursor: pointer;
+    outline: none;
+    cursor:pointer;
+
+    &:hover {
+        background-color: var(--white);
+        color: var(--blue);
+    }
+}
+
+.button-primary[disabled] {
+    background-color: var(--grey);
+    color: var(--blue);
+}
