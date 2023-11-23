@@ -24,17 +24,4 @@ function generateAccessToken(user) {
   return jwt.sign(user, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '15s' })
 }
 
-app.post('/bikes', authenticateJWT, (req, res) => {
-    const { page } = req.body;
-  
-    axios.get(`https://bikeindex.org:443/api/v3/search?page=${page}&per_page=25&location=Berlin&distance=10&stolenness=proximity`)
-      .then(response => {
-        res.send(response.data);
-      })
-      .catch(error => {
-        console.error(error);
-        res.status(500).send('Error fetching data from external service');
-      });
-  });
-
 app.listen(4000)
