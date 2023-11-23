@@ -50,10 +50,12 @@ https://bikeindex.org:443/api/v3/search/count?location=Berlin&distance=10&stolen
 
 On homepage we have the table with bikes info, the pagination with the total and the map showing bikes positions.
 
-If we click on the table data or on the map icons the bikes are highlighted.
-If the image is not available I show a placeholder.
-If I am in the first page I disable the Previous button, if I am at the last page I disable Next page button.
+-If we click on the table data or on the map icons the bikes are highlighted.
 
-Using the search bar you can filter by title on the results that you have in the table.
+-If the image is not available I show a placeholder.
+
+-If I am in the first page I disable the Previous button, if I am at the last page I disable Next page button.
+
+-Using the search bar you can filter by title on the results that you have in the table and reset the search with the reset button.
 
 Enjoy ;)
