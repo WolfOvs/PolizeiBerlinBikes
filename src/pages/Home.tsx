@@ -14,8 +14,9 @@ function Home() {
   const [page, setPage] = useState(1);
   const [filterBikes, setFilterBikes] = useState("");
   const location = useLocation();
+  const token = localStorage.getItem("token");
 
-  if (location.state === null) {
+  if (token === null) {
     navigate("/");
   }
 
@@ -23,7 +24,7 @@ function Home() {
     fetch(`${BASE_URL}/bikesCount`, {
       method: "GET",
       headers: new Headers({
-        Authorization: `Bearer ${location.state.token}`,
+        Authorization: `Bearer ${token}`,
       }),
     }).then((res) => res.json());
 
@@ -33,7 +34,7 @@ function Home() {
       body: JSON.stringify({ page: page }),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${location.state.token}`,
+        Authorization: `Bearer ${token}`,
       },
     }).then((res) => res.json());
 
@@ -43,7 +44,7 @@ function Home() {
     keepPreviousData: true,
   });
 
-  const { isLoading, data, isFetching } = useQuery({
+  const { isLoading, data, isFetching, isError } = useQuery({
     queryKey: ["bikes", page],
     queryFn: () => fetchBikes(page),
     keepPreviousData: true,
@@ -109,3 +110,5 @@ function Home() {
 }
 
 export default Home;
+
+

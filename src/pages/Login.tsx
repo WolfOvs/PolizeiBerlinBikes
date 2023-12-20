@@ -18,7 +18,8 @@ function Login() {
       }),
     {
       onSuccess: (data) => {
-        navigate('/home',{state: {"token": data.data.token}});
+        localStorage.setItem('token', data.data.token);
+        navigate('/home');
       },
       onError: () => {
         console.error('Login failed');
